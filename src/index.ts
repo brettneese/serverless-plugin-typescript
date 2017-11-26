@@ -138,7 +138,7 @@ export class TypeScriptPlugin {
   async copyExtras() {
     // include node_modules into build
     if (!fs.existsSync(path.resolve(path.join(buildFolder, 'node_modules')))) {
-      fs.symlinkSync(path.resolve('node_modules'), path.resolve(path.join(buildFolder, 'node_modules')))
+      fs.copySync(path.resolve('node_modules'), path.resolve(path.join(buildFolder, 'node_modules')))
     }
 
     // include package.json into build so Serverless can exlcude devDeps during packaging
